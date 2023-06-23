@@ -23,11 +23,11 @@ int main() {
 
   for (int i = 0; i <= totalIterations; ++i) {
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    // updateProgress(i, totalIterations);
+    updateProgress(i, totalIterations);
     // Simulate some work
     // You can replace this with your actual code that performs the task
     // Sleep or delay can be used to simulate processing time
-    std::cout << i << " / " << totalIterations << "\r";
+    // std::cout << i << " / " << totalIterations << "\r";
     std::cout.flush();
   }
 
