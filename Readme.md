@@ -10,7 +10,6 @@ Download files using curl
 
 ```bash
 curl -o progressbar.cpp https://gitlab.com/my-mini-utilities/cli-progress-bar-cpp/-/raw/main/progressBar.cpp
-
 curl -o progressbar.h https://gitlab.com/my-mini-utilities/cli-progress-bar-cpp/-/raw/main/progressBar.h
 ```
 
