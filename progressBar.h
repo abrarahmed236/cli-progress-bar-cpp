@@ -7,6 +7,7 @@
 #include <string>
 #include <thread>
 
+namespace MyProgressBar {
 class progressBar {
     long long progress;
     long long total;
@@ -23,5 +24,6 @@ class progressBar {
     void finish(std::string message);
     uint8_t get_width(long long num);
 };
+}  // namespace MyProgressBar
 
 #endif

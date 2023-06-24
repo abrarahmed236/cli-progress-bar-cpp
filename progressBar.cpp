@@ -1,5 +1,6 @@
 #include "progressBar.h"
 
+namespace MyProgressBar {
 progressBar::progressBar(long long progress_input, long long total_input) {
     progress = progress_input;
     total = total_input;
@@ -55,3 +56,5 @@ uint8_t progressBar::get_width(long long num) {
     }
     return result;
 }
+
+}  // namespace MyProgressBar
