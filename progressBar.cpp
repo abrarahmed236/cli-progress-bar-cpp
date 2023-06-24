@@ -6,6 +6,13 @@ progressBar::progressBar(long long progress_input, long long total_input) {
     total = total_input;
 }
 
+int progressBar::getTerminalWidth() {
+    struct winsize size;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
+    return size.ws_col;
+}
+
+
 void progressBar::reset() { progress = 0; }
 
 void progressBar::init(long long progress_input, long long total_input) {
@@ -21,6 +28,9 @@ void progressBar::simple() {
 
 void progressBar::fancy() {
     int barWidth = 50;
+    barWidth = getTerminalWidth() - 10;
+    if(barWidth <= 0) barWidth = 10;
+    
     float fraction = static_cast<double>(progress) / total;
     int filledWidth = static_cast<int>(barWidth * fraction);
 
@@ -44,17 +54,9 @@ void progressBar::finish(std::string message) {
 }
 
 uint8_t progressBar::get_width(long long num) {
-    if (num == 0) return 1;
-    uint8_t result = 0;
-    if (num < 0) {
-        result++;
-        num *= -1;
-    }
-    while (num) {
-        result++;
-        num /= 10;
-    }
-    return result;
+    std::stringstream ss;
+    ss << num;
+    return ss.str().length();
 }
 
 }  // namespace MyProgressBar
