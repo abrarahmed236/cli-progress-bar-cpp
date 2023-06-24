@@ -30,6 +30,7 @@ void progressBar::fancy() {
     int barWidth = 50;
     barWidth = getTerminalWidth() - 10;
     if(barWidth <= 0) barWidth = 10;
+    if(barWidth > 100) barWidth = 100;
     
     float fraction = static_cast<double>(progress) / total;
     int filledWidth = static_cast<int>(barWidth * fraction);
@@ -53,7 +54,7 @@ void progressBar::finish(std::string message) {
     std::cout << std::endl << "Task completed! " << message << std::endl;
 }
 
-uint8_t progressBar::get_width(long long num) {
+unsigned short progressBar::get_width(long long num) {
     std::stringstream ss;
     ss << num;
     return ss.str().length();

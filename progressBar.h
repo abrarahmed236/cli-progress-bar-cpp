@@ -16,7 +16,7 @@ class progressBar {
     long long progress;
     long long total;
 
-    uint8_t get_width(long long num);
+    unsigned short get_width(long long num);
     int getTerminalWidth();
 
    public:

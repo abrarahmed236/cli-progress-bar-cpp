@@ -1,6 +1,6 @@
 # CLI Progress Bar
 
-Easy Progress Bar for cli applications
+Easy Progress Bar for cli applications in c++
 
 ## Instructions
 
@@ -9,6 +9,8 @@ Easy Progress Bar for cli applications
 ```bash
 g++ example.cpp progressBar.cpp && ./a.out
 ```
+
+### Usage
 
 ## To-Do
 
@@ -20,8 +22,8 @@ g++ example.cpp progressBar.cpp && ./a.out
 - [x] Cleanup
 - [x] Add library to a namespace ??
 - [x] Consider the width of the screen before making progress bar
-- [ ] Can I and should I unit test this ??
+- [x] Type Cleanup. Using variable width types.
 - [ ] Better Readme
-- [ ] Ostream Operator Overload ??
 - [ ] Usage: How would someone use this effectively ?
-- [ ] Type Cleanup. What types should i use ? fixed uint32_t likes ?
+- [ ] Can I and should I unit test this ??
+- [ ] Build Tests ??
