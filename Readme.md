@@ -8,8 +8,8 @@ Easy Progress Bar for cli applications
 
 - [x] Move to new Group "My Mini Utilities"
 - [x] Class based implementation
-- [ ] Turn this into a easily usable library file
-
-### Main
-
+- [x] Turn this into a easily usable library file
+- [ ] Add library to a namespace ??
 - [ ] Consider the width of the screen before making progress bar
+- [ ] Can I and should I test this ??
+- [ ] Cleanup

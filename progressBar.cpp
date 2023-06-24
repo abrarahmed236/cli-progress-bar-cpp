@@ -1,28 +1,6 @@
-#include <chrono>
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <thread>
+#include "progressBar.h"
 
-class progressBar {
-    long long progress;
-    long long total;
-
-   public:
-    progressBar(long long progress_input, long long total_input);
-    void reset();
-    void init(long long progress_input, long long total_input);
-    void simple();
-    void fancy();
-    void increment();
-    void increment(long long val);
-    void finish();
-    void finish(std::string message);
-    uint8_t get_width(long long num);
-};
-
-progressBar::progressBar(long long progress_input,
-                               long long total_input) {
+progressBar::progressBar(long long progress_input, long long total_input) {
     progress = progress_input;
     total = total_input;
 }
@@ -54,9 +32,7 @@ void progressBar::fancy() {
 
 void progressBar::increment() { progressBar::progress++; }
 
-void progressBar::increment(long long val) {
-    progressBar::progress += val;
-}
+void progressBar::increment(long long val) { progressBar::progress += val; }
 
 void progressBar::finish() {
     std::cout << std::endl << "Task completed!" << std::endl;
@@ -78,27 +54,4 @@ uint8_t progressBar::get_width(long long num) {
         num /= 10;
     }
     return result;
-}
-
-int main() {
-    const int totalIterations = 234;
-
-    progressBar progressLog(0, totalIterations);
-    for (int i = 0; i < totalIterations; i++) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        progressLog.increment();
-        progressLog.simple();
-    }
-    progressLog.finish();
-
-    progressLog.reset();
-    progressLog.init(0, totalIterations);
-    for (int i = 0; i < totalIterations; i++) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        progressLog.increment();
-        progressLog.fancy();
-    }
-    progressLog.finish();
-
-    return 0;
 }
